@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hth · 日常查询与对照指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(145deg, #fce9d7 0%, #f8d5b0 50%, #f0c696 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 2rem 1.2rem;
+            line-height: 1.7;
+            color: #2c241b;
+        }
+
+        .container {
+            max-width: 820px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border-radius: 40px;
+            padding: 2.8rem 2.4rem;
+            box-shadow: 0 18px 40px -12px rgba(140, 80, 30, 0.25);
+            border: 1px solid rgba(255, 255, 240, 0.4);
+            transition: box-shadow 0.2s;
+        }
+
+        .container:hover {
+            box-shadow: 0 22px 48px -14px rgba(120, 65, 20, 0.30);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.4px;
+            color: #3e2d1e;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.2rem;
+            flex-wrap: wrap;
+        }
+
+        .subhead {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #7a624a;
+            margin-top: -0.2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid rgba(200, 160, 110, 0.3);
+        }
+
+        .subhead span {
+            background: #ebd5bb;
+            padding: 0.1rem 0.7rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #4d3824;
+            margin-left: 0.5rem;
+        }
+
+        .hero-text {
+            background: #fff7ed;
+            padding: 1.8rem 2rem;
+            border-radius: 28px;
+            margin-bottom: 2.2rem;
+            border-left: 6px solid #dbaa7a;
+            font-size: 1.05rem;
+            box-shadow: 0 4px 10px rgba(170, 110, 50, 0.06);
+        }
+
+        .hero-text strong {
+            color: #8f5e34;
+        }
+
+        .intro-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 2rem 0 2.4rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 1.6rem 1.8rem;
+            flex: 1 1 200px;
+            min-width: 180px;
+            box-shadow: 0 8px 18px -8px rgba(130, 80, 30, 0.10);
+            transition: transform 0.1s ease;
+            border: 1px solid rgba(240, 210, 175, 0.3);
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            background: #fffcf7;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #5d3f28;
+            letter-spacing: 0.3px;
+            border-left: 3px solid #daa775;
+            padding-left: 0.6rem;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #4a3b2d;
+        }
+
+        .scenario {
+            background: #f7ede2;
+            border-radius: 28px;
+            padding: 1.6rem 2rem;
+            margin: 2rem 0;
+        }
+
+        .scenario h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #3a2c1f;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .scenario ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.6rem;
+        }
+
+        .scenario li {
+            position: relative;
+            padding-left: 1.2rem;
+            font-size: 0.95rem;
+            color: #352a1f;
+            flex: 1 0 40%;
+        }
+
+        .scenario li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #b27a4c;
+            font-weight: bold;
+        }
+
+        .faq-mini {
+            background: #ffffffd6;
+            border-radius: 28px;
+            padding: 1.6rem 2rem;
+            margin: 1.8rem 0 1.2rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.6rem;
+            border-bottom: 1px solid #eedccb;
+            padding-bottom: 0.5rem;
+        }
+
+        .faq-mini summary {
+            cursor: pointer;
+            font-weight: 550;
+            color: #4b3726;
+            font-size: 0.95rem;
+            padding: 0.2rem 0;
+            transition: 0.1s;
+        }
+
+        .faq-mini summary:hover {
+            color: #a06b3d;
+        }
+
+        .faq-mini details p {
+            margin: 0.4rem 0 0.2rem 0.8rem;
+            font-size: 0.9rem;
+            color: #3f3327;
+        }
+
+        .link-sentence {
+            background: #fff6e9;
+            padding: 1.4rem 2rem;
+            border-radius: 60px;
+            text-align: center;
+            margin: 2.4rem 0 1.4rem;
+            font-size: 1.1rem;
+            border: 1px solid #e7cdb2;
+        }
+
+        .link-sentence a {
+            color: #8c5e34;
+            font-weight: 600;
+            text-decoration: none;
+            background: #f0dcc8;
+            padding: 0.15rem 1.2rem;
+            border-radius: 40px;
+            transition: all 0.15s;
+            font-size: 1.1rem;
+            letter-spacing: 0.3px;
+            border: 1px solid #cfa87b;
+            display: inline-block;
+        }
+
+        .link-sentence a:hover {
+            background: #dbb48b;
+            color: #2d1d0f;
+            border-color: #b58050;
+            box-shadow: 0 3px 8px rgba(130, 75, 20, 0.12);
+        }
+
+        .footnote {
+            font-size: 0.8rem;
+            color: #7b6852;
+            margin-top: 2rem;
+            text-align: center;
+            border-top: 1px solid #ead6c0;
+            padding-top: 1.2rem;
+            letter-spacing: 0.2px;
+        }
+
+        .footnote span {
+            background: #e8d3bf;
+            padding: 0.1rem 0.5rem;
+            border-radius: 30px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .container {
+                padding: 1.6rem 1.2rem;
+                border-radius: 28px;
+            }
+            h1 {
+                font-size: 1.7rem;
+            }
+            .hero-text {
+                padding: 1.2rem;
+                font-size: 0.95rem;
+            }
+            .card {
+                flex: 1 1 100%;
+                padding: 1.2rem;
+            }
+            .scenario ul {
+                flex-direction: column;
+                gap: 0.4rem;
+            }
+            .scenario li {
+                flex: 1 0 auto;
+            }
+            .link-sentence {
+                font-size: 1rem;
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <h1>
+        hth<small style="font-weight:400; font-size:1rem; color:#8b6f51; margin-left:0.3rem;">· 对照 & 延伸</small>
+    </h1>
+    <div class="subhead">
+        日常查询与参照 · 信息摘要 <span>轻量</span>
+    </div>
+
+    <div class="hero-text">
+        <strong>从一次查询到一组参照</strong> —— 在信息零散、版本凌乱的日常中，<strong>hth</strong> 提供一种精简的对照入口：把关键字段、状态节点和说明段落集中陈列，省去反复翻找的消耗。页面不追求面面俱到，而是让每个条目都具备“可对比、可引用”的实质内容。
+    </div>
+
+    <div class="intro-grid">
+        <div class="card">
+            <h3>摘要·字段</h3>
+            <p>核心标识、状态标签、时间节点等字段以统一格式排列。同一属性下的不同取值可左右对照，减少误读。</p>
+        </div>
+        <div class="card">
+            <h3>亮点·层级</h3>
+            <p>重要说明使用视觉锚点（色块、缩进、符号）区分主次，避免长文本淹没关键信息。适合快速扫描。</p>
+        </div>
+        <div class="card">
+            <h3>延伸·链接</h3>
+            <p>每个模块末尾配有参考来源或相关条目，方便从当前查询跳转至更完整的上下文，保持阅读连续。</p>
+        </div>
+    </div>
+
+    <div class="scenario">
+        <h2>📋 适用场景</h2>
+        <ul>
+            <li>对比不同条目下的属性差异</li>
+            <li>核对版本号、日期、状态等细节</li>
+            <li>从摘要切入后，通过延伸阅读了解背景</li>
+            <li>短时间浏览多个相关记录或配置项</li>
+            <li>将关键字段复制至本地文档或团队共享</li>
+        </ul>
+    </div>
+
+    <div class="faq-mini">
+        <details>
+            <summary>为什么选择这种卡片式对照结构？</summary>
+            <p>卡片将每个独立条目封装为可视单元，减少视线跳转幅度。当你需要同时查看多组字段时，卡片并排比纯列表更能减少遗漏。</p>
+        </details>
+        <details>
+            <summary>是否可以直接引用页面中的字段值？</summary>
+            <p>可以。本页字段均以文本形式直接展示，不依赖脚本渲染，方便选中、复制或引用到外部工具中核对。</p>
+        </details>
+        <details>
+            <summary>延伸阅读指向哪些内容？</summary>
+            <p>每个板块底部或侧边会给出 1–2 个相关链接，通常指向更详细的描述页、变更日志或关联数据集。具体链接视内容而定。</p>
+        </details>
+    </div>
+
+    <div class="link-sentence">
+        日常需要快速定位或交叉比对时，<a href="https://portal1-huatihui.com">hth</a> 可以作为轻量化的起点。
+    </div>
+
+    <div class="footnote">
+        <span>信息说明</span> 本页内容基于常见查询场景整理，仅供对照参考。具体数据请以实际页面为准。
+    </div>
+
+</div>
+</body>
+</html>
